@@ -49,17 +49,48 @@ st.markdown(
     div[data-testid="stMetricValue"] {
         color: #1B2A4A;
     }
-    .stButton > button {
-        background-color: #1B2A4A;
-        color: #FAF8F4;
+    .stButton > button,
+    .stFormSubmitButton > button,
+    button[kind="primary"],
+    button[kind="secondary"],
+    button[kind="primaryFormSubmit"],
+    button[kind="secondaryFormSubmit"] {
+        background-color: #1B2A4A !important;
+        color: #FAF8F4 !important;
         border-radius: 4px;
-        border: none;
+        border: none !important;
         padding: 0.5rem 1.5rem;
         font-weight: 500;
+        width: 100%;
     }
-    .stButton > button:hover {
-        background-color: #E8A33D;
-        color: #1B2A4A;
+    .stButton > button:hover,
+    .stFormSubmitButton > button:hover,
+    button[kind="primaryFormSubmit"]:hover,
+    button[kind="secondaryFormSubmit"]:hover {
+        background-color: #E8A33D !important;
+        color: #1B2A4A !important;
+    }
+    /* Keep form inputs readable on mobile / dark-mode phones */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="input"] > div,
+    .stNumberInput input,
+    .stTextInput input {
+        background-color: #FFFFFF !important;
+        color: #2B2F38 !important;
+    }
+    div[data-baseweb="popover"] li {
+        background-color: #FFFFFF !important;
+        color: #2B2F38 !important;
+    }
+    /* Stack columns with breathing room on small screens */
+    @media (max-width: 640px) {
+        .block-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        div[data-testid="stMetric"] {
+            margin-bottom: 12px;
+        }
     }
     .study-tag {
         display: inline-block;
